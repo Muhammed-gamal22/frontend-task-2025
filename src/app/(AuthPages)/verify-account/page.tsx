@@ -27,6 +27,10 @@ const VerifyAccountPage = () => {
          } catch (error:any) {
             if(error.response?.status === 400){
                 toast.error(error.response?.data?.error?.message)
+                if(error.response?.data?.error?.message === "هذا الحساب مفعل"){
+                   router.push("/dashboard")
+                }
+                
             }
          }
         
