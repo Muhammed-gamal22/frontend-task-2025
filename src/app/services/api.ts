@@ -21,16 +21,13 @@ const getCookie = async () => {
     });
   };
 
-export const postData = async ([endpoint, body]: [string, any]) => {
+  export const postData = async ([endpoint, body]: [string, any]) => {
     try {
       let token = await getCookie();
-      if (token) {
-        token = JSON.parse(token);
-      }
       const response = await client.post(endpoint, body, {
         withCredentials: true,
         headers: {
-          Authorization: `Bearer ${token} `,
+          Authorization: token ? `Bearer ${token}` : "",
         },
       });
   

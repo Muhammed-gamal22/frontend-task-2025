@@ -18,7 +18,7 @@ const RegisterPage = ()=>{
           const response = await axios.post("/api?url=auth/register", formData);
          if(response.status === 200){
             toast.success(response.data.message)
-            // router.push("/dashboard")
+            router.push("/login")
          }
         } catch (error: any) {
           const serverErrors = error.response?.data?.error?.errors;

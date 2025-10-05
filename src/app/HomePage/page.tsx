@@ -1,3 +1,4 @@
+import Footer from "../components/Footer";
 import Header from "../components/Header";
 import ProductDetails from "../components/ProductDetails";
 import RatingAndReviews from "../components/RatingAndReviews";
@@ -10,6 +11,7 @@ const HomePage = ()=>{
             <ProductDetails/>
             <RatingAndReviews/>
             <SimilarItems/>
+            <Footer/>
         </div>
     )
 }

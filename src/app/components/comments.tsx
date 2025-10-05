@@ -32,12 +32,12 @@ const COMMENTS=[
 ]
 const Comments= ()=>{
     return(
-        <div className="w-full">
+        <div className="w-full mt-[16px]">
             {COMMENTS.map((comment)=>(
                 <Comment key={comment.id} comment={comment}/>
             ))}
              <div className="flex justify-center items-center mt-[24px]">
-             <button className="rounded-[12px] text-[14px] mx-auto text-[#BE968E] font-semibold bg-[#f5f5f5] h-[56px] w-[207px] flex items-center justify-center gap-2">View More Comments</button>
+             <button className="rounded-[12px] cursor-pointer text-[14px] mx-auto text-[#BE968E] font-semibold bg-[#f5f5f5] h-[56px] w-[207px] flex items-center justify-center gap-2">View More Comments</button>
              </div>
         </div>
     )

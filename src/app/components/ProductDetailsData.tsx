@@ -11,6 +11,8 @@ const Colors=[
 ]
 const ProductDetailsData = () => {
     const [selectedColor, setSelectedColor] = React.useState("Red");
+    const [type, setType] = React.useState("Cotton");
+    const [size, setSize] = React.useState("2xl");
   return (
     <div>
         <div className='flex justify-between items-center'>
@@ -30,16 +32,47 @@ const ProductDetailsData = () => {
              </div>
         </div>
       <div className='flex mt-[10px] flex-col gap-4'>
-      <h2 className="text-2xl font-semibold mb-2">
+      <h2 className="md:text-2xl text-[16px] font-semibold mb-2">
     J.VER Man Shirts Solid Long Sleeve Stretch Wrinkle-Free With Blue
     </h2>
 
-    <p className="text-lg font-medium text-[20px] text-[rgba(2, 2, 2, 1)] mb-2">
+    <p className="md:text-lg text-[16px] font-medium text-[rgba(2, 2, 2, 1)] mb-2">
       $300.00 <span className="line-through text-gray-400 ml-2">$350.00</span>
     </p>
     <p className="text-[12px] font-normal text-[rgba(51, 51, 51, 1)]">This price is exclusive of taxes.</p>
     <p className='font-normal mt-1 text-[14px] text-[rgba(2, 2, 2, 1)]'>Lorem ipsum dolor sit , consectetuer adipiscing elit, sed diam nonummy Lorem ipsum dolor sit amet, diam nonummy</p>
     <div className=' py-2 border-b border-[rgba(230, 230, 230, 1)]'/>
+
+    <div className="relative border p-1 border-[#00000026] rounded-[10px] w-64">
+        <span className='absolute left-2 -top-3'>Type</span>
+  <select
+    value={type}
+    onChange={(e) => setType(e.target.value)}
+    className="appearance-none p-1 w-full outline-none border-none border-gray-300 rounded-lg px-4 py-2 pr-10 focus:outline-none"
+  >
+    <option value="Cotton">Cotton</option>
+    <option value="Cotton">Cotton</option>
+    <option value="Cotton">Cotton</option>
+  </select>
+  <span className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 pointer-events-none">
+    <Image src="/icon-filled.svg" alt="" width={20} height={20}/>
+  </span>
+</div>
+<div className="relative border p-1 border-[#00000026] rounded-[10px] w-64">
+        <span className='absolute left-2 -top-3'>Size</span>
+  <select
+    value={size}
+    onChange={(e) => setSize(e.target.value)}
+    className="appearance-none p-1 w-full outline-none border-none border-gray-300 rounded-lg px-4 py-2 pr-10 focus:outline-none"
+  >
+    <option value="2xl">2xl</option>
+    <option value="4xl">4xl</option>
+    <option value="6xl">6xl</option>
+  </select>
+  <span className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 pointer-events-none">
+    <Image src="/icon-filled.svg" alt="" width={20} height={20}/>
+  </span>
+</div>
        <div>
         <h2 className='text-[20px] text-[#020202] font-medium'>Colors</h2>
        <div className='flex gap-4'>
@@ -55,7 +88,7 @@ const ProductDetailsData = () => {
       </div>
        </div>
       </div>
-      <div className='flex my-[22px] justify-between'>
+      <div className='flex md:flex-row flex-col my-[22px] justify-between'>
          <div className='flex flex-col gap-2'>
          <div className='flex items-center gap-1'>
              <h2 className='text-[20px] font-normal'>Quantity</h2>
@@ -64,13 +97,13 @@ const ProductDetailsData = () => {
          <div className='flex items-center gap-6'>
             <div className='w-[184px] bg-[#F5F5F5] items-center justify-center rounded-[12px] p-2 flex gap-4'>
                 <div className='text-[28px] flex items-center justify-center bg-white rounded-[12px] w-[40px] h-[40px] text-[#B0B0B0] font-medium'>-</div>
-                <div className='text-[28px] flex items-center justify-center bg-white rounded-[12px] w-[40px] h-[40px] text-[#333333] font-medium'>01</div>
+                <div className='text-[28px] flex items-center justify-center  rounded-[12px] w-[40px] h-[40px] text-[#333333] font-medium'>01</div>
                 <div className='text-[28px] flex items-center justify-center bg-white rounded-[12px] w-[40px] h-[40px] text-[#000000] font-medium'>+</div>
             </div>
             <h2 className='text-[24px] text-[#020202] font-medium'>$300.00</h2>
          </div>
          </div>
-         <div className='w-[234px] h-[56px] cursor-pointer bg-[#BE968E] text-white self-end rounded-[12px] flex items-center justify-center gap-2'>
+         <div className='md:w-[234px] mt-[12px] w-full h-[56px] cursor-pointer bg-[#BE968E] text-white self-end rounded-[12px] flex items-center justify-center gap-2'>
             <span>Add To Cart</span>
             <Image src="/shopping-bag-red.svg" width={24} height={24} alt=""/>
          </div>

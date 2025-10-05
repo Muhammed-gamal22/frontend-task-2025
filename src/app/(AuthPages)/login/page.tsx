@@ -18,7 +18,7 @@ const LoginPage = ()=>{
             await saveCookie(response?.data?.data?.token)
            if(response.status === 200){
               toast.success(response.data.message)
-              router.push("/dashboard")
+              router.push("/verify-account")
            }
           } catch (error: any) {
             const serverErrors = error.response?.data?.error?.errors;
