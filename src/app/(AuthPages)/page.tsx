@@ -45,14 +45,14 @@ const RegisterPage = ()=>{
       
     return(
         <form onSubmit={handleSubmit(onSubmit)} className="
-        flex flex-col gap-[40px] mt-[120px] h-full  items-center justify-center">
+        flex flex-col md:gap-[40px] gap-[20px] mt-[30px] md:mt-[120px] h-full  items-center justify-center">
             <Image src="/Logo.svg" alt="Logo" width={66} height={51}/>
-            <div className="flex flex-col md:flex-row gap-4">
+            <div className="flex flex-col md:flex-row gap-2 md:gap-4">
             <Input errors={errors.name as FieldError} 
             label="Name" {...register("name",{required:true})}/>
             <Input errors={errors.email as FieldError} label="Email" {...register("email",{required:true})}/>
             </div>
-            <div className="flex flex-col md:flex-row gap-4">
+            <div className="flex flex-col md:flex-row  gap-2 md:gap-4">
             <Input errors={errors.password as FieldError} 
             label="Password" 
             {...register("password",{required:true})}/>
@@ -60,7 +60,7 @@ const RegisterPage = ()=>{
             label="Confirm Password" 
             {...register("password_confirmation",{required:true})}/>
             </div>
-            <div className="flex flex-col md:flex-row gap-4">
+            <div className="flex flex-col md:flex-row gap-2 md:gap-4">
             <Input errors={errors.mobile as FieldError} 
             label="phone number" 
             {...register("mobile",{required:true})}/>
