@@ -45,7 +45,7 @@ const RegisterPage = ()=>{
       
     return(
         <form onSubmit={handleSubmit(onSubmit)} className="
-        flex flex-col gap-[40px] h-screen items-center justify-center">
+        flex flex-col gap-[40px] mt-[120px] h-full  items-center justify-center">
             <Image src="/Logo.svg" alt="Logo" width={66} height={51}/>
             <div className="flex flex-col md:flex-row gap-4">
             <Input errors={errors.name as FieldError} 
