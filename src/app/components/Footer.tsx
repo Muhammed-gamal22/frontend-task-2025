@@ -9,7 +9,7 @@ const Images=[
 ]
 const Footer = () => {
     return (
-        <div className="relative h-[669px] bg-top md:h-[323px] bg-[url('/kids.svg')]  bg-cover">
+        <div className="relative h-[700px] bg-top md:h-[323px] bg-[url('/kids.svg')]  bg-cover">
         <div className="absolute top-0 left-0 w-full h-full bg-[rgba(0,0,0,0.6)]"></div>
         <div className="absolute inset-0 flex md:py-8 py-2 container mx-auto">
           <div className="grid w-full px-4  grid-cols-2 md:grid-cols-4 gap-6 md:gap-12">

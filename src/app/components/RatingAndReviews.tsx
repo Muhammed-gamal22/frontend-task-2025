@@ -26,9 +26,14 @@ const SLIDERS=[
 ]
 const RatingAndReviews = ()=>{
     return(
-        <div className="container px-3 mx-auto">
+        <div className="container mt-[22px] px-3 mx-auto">
          <div className="text-[#020202] md:text-[24px] text-[16px] font-semibold">
-         <h2 className="md:text-[24px] text-[16px]">Rating And Reviews</h2>
+          <div className="relative">
+          <Image  src="/layer-1.svg" alt="" width={98} height={58} 
+          className="absolute block md:hidden mb-[40px] -bottom-[60px] left-0"/>
+          <h2 className="md:text-[24px] z-[999999] relative  text-[16px]">Rating And Reviews</h2>
+          </div>
+
           <div className="h-[4px] w-[40px] bg-[#BE968E]"/>
          </div>
          <div className="grid grid-cols-1 px-3 md:grid-cols-2 lg:grid-cols-3 gap-6">

@@ -12,15 +12,19 @@ import { verifySchema } from "@/app/utils/login"
 import axios from "axios"
 import { useRouter } from "next/navigation"
 import { toast } from "react-toastify"
+import { useState } from "react"
 const VerifyAccountPage = () => {
     const router = useRouter()
+    const[isLoading,setIsLoading] = useState(false);
     const { control, handleSubmit, formState: { errors } } = useForm({
         resolver: yupResolver(verifySchema),
       })
     const onSubmit = async(data: any) => {
          try {
+            setIsLoading(true)
             const response = await axios.post("api?url=auth/verify-email", data)
             if(response.status === 200){
+              setIsLoading(false)
                 toast.success(response.data.message)
                 router.push("/dashboard")
             }
@@ -34,6 +38,8 @@ const VerifyAccountPage = () => {
                
                 
             }
+         }finally{
+            setIsLoading(false)
          }
         
       }
@@ -69,9 +75,9 @@ const VerifyAccountPage = () => {
   
         <button
           type="submit"
-          className="mt-4 bg-blue-500 text-white px-4 py-2 rounded-md"
+          className="mt-4 w-[150px] cursor-pointer py-3 rounded-2xl bg-blue-500 text-white px-4"
         >
-          تأكيد
+          {isLoading ? "Loading..." : "Verify"}
         </button>
       </form>
     )

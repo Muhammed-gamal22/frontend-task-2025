@@ -10,17 +10,23 @@ import axios from "axios"
 import { toast } from "react-toastify"
 import { useRouter } from "next/navigation"
 import { saveCookie } from "@/app/services/api"
+import { useState } from "react"
+import Link from "next/link"
 const LoginPage = ()=>{
     const router = useRouter()
+    const[isLoading,setIsLoading] = useState(false);
     const onSubmit = async (data:any)=>{
         try {
+            setIsLoading(true)
             const response = await axios.post("/api?url=auth/login", data);
             await saveCookie(response?.data?.data?.token)
            if(response.status === 200){
               toast.success(response.data.message)
+              setIsLoading(false)
               router.push("/verify-account")
            }
           } catch (error: any) {
+            setIsLoading(false)
             const serverErrors = error.response?.data?.error?.errors;
             if(error.response?.data?.error?.message && !serverErrors){
               toast.error(error.response?.data?.error?.message)
@@ -32,6 +38,8 @@ const LoginPage = ()=>{
                 });
               });
             }
+          }finally{
+            setIsLoading(false)
           }
     }
     const {register,handleSubmit,formState:{errors}} = useForm({
@@ -52,7 +60,12 @@ const LoginPage = ()=>{
             {...register("password",{required:true})}/>
            
             </div>
-            <button className="w-[300px] cursor-pointer rounded-2xl bg-purple-500 text-white py-4" type="submit">Login</button>
+            <button className="w-[300px] cursor-pointer rounded-2xl 
+            bg-purple-500 text-white py-4" type="submit">{isLoading ? "Loading..." : "Login"}</button>
+            <div className="flex gap-1">
+               <p>Don't have an account?</p>
+               <Link className="text-blue-500" href="/">Register</Link>
+            </div>
         </form>
     )
 }

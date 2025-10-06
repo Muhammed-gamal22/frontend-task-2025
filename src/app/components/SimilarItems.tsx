@@ -15,6 +15,7 @@ const ITEMS=[
     {
         image:"/photo1.svg",
         type:"Dresses",
+  
       } ,
       {
         image:"/photo1.svg",
@@ -39,10 +40,21 @@ const SimilarItems = () => {
   const [swiper,setSwiper]=useState<SwiperType | null>(null)
     return (
         <div className="py-4 ml-[10%] mx-auto">
-    <div className="text-[#020202] mb-[22px] text-[24px] font-semibold">
-         <h2>Similar Items</h2>
-          <div className="h-[4px] w-[40px] bg-[#BE968E]"/>
-     </div>
+   <div className="relative mb-2">
+  <Image 
+    src="/layer-1.svg" 
+    alt="" 
+    width={98} 
+    height={58} 
+    className="block  md:hidden mb-2" 
+  />
+ <div>
+ <h2 className="md:text-[24px] font-bold absolute md:static -mt-[40px] md:mt-0   text-[16px]   z-[10]">
+    Similar Items
+  </h2>
+  <div className="h-[4px] -mt-[15px] md:mt-0 absolute md:static   z-[10] w-[40px] bg-[#BE968E]"/>
+ </div>
+</div>
          <div className="w-full   mx-auto">
       <Swiper
         spaceBetween={20}

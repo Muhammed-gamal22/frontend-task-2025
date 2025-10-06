@@ -23,7 +23,7 @@ const ProductImages = () => {
       };
   return (
      
-    <div>
+    <div className='relative'>
         <div className="flex relative z-[999999] md:top-[40px] top-[50px] justify-center gap-6 mb-4">
         {images.map((tab, index) => (
           <button
@@ -49,17 +49,17 @@ const ProductImages = () => {
       modules={[FreeMode, Navigation, Thumbs]}
       onSwiper={(swiper)=>setSwiper(swiper)}
       onSlideChange={(swiper)=>setActiveTab(swiper.activeIndex)}
-      className="mb-4 rounded-lg"
+      className="mb-4 h-[500px] rounded-lg"
     >
        
       {images.map((img, idx) => (
       
-        <SwiperSlide className='bg-[#F5F5F5]  relative w-[169px] h-[183px]' key={idx}>
+        <SwiperSlide className='bg-[#F5F5F5]  relative w-[169px] h-[200px]' key={idx}>
          
           <img
             src={img}
             alt={`Product ${idx}`}
-            className="w-full h-[400px] object-cover rounded-lg"
+            className="w-full h-[500px] object-cover rounded-lg"
           />
           
         </SwiperSlide>
@@ -97,6 +97,7 @@ const ProductImages = () => {
         </SwiperSlide>
       ))}
     </Swiper>
+    <Image src="/layer-1.svg" alt="" width={98} height={58} className="absolute hidden md:block mb-[40px] -bottom-[90px] left-0"/>
   </div>
   )
 }
